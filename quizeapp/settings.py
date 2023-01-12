@@ -18,6 +18,8 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 AUTH_USER_MODEL = 'users.User'
+
+SITE_ID = 1
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -42,6 +44,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'quize',
     'users',
+    'cloudinary_storage',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_framework.authtoken',
+    'dj_rest_auth.registration',
 ]
 
 MIDDLEWARE = [

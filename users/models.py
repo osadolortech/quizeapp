@@ -4,11 +4,15 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     name = models.CharField(max_length=120,blank=False)
-    email = models.EmailField(max_length=120,blank=False)
+    email = models.EmailField(max_length=120,blank=False,unique=True)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
-    REQUIRED_FIELDS = ['email']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    def __str__(self):
+        return self.name
 
 
 def upload_pic(instance, filename):

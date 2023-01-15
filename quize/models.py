@@ -64,6 +64,9 @@ class Answers(Updated):
         verbose_name = _("Answer")
         verbose_name_plural = _("Answers")
         ordering = ["id"]
-    question = models.ForeignKey(Quesion,on_delete=models.DO_NOTHING,related_name="answers")
+    question = models.ForeignKey(Quesion,on_delete=models.DO_NOTHING,related_name="answer")
     answer_text = models.CharField(max_length=125,verbose_name=_("Answer_text"))
     is_right = models.BooleanField(default=False,)
+
+    def __str__(self):
+        return self.answer_text

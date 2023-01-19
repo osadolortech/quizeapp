@@ -28,3 +28,14 @@ class RandomQuestionSerializer(ModelSerializer):
         fields = [
             'title','answer'
         ]
+
+class QuestionSerializer(ModelSerializer):
+
+    answer = AnswerSerializer(many=True,read_only=True)
+    quize = QuizeSerializer(read_only=True)
+
+    class Meta:
+        model = Quesion
+        fields = [
+            'quize','title','answer'
+        ]
